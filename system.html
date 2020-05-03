@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System</title>
+    <link rel="stylesheet" type="text/css" href="css/system.css">
+</head>
+<body>
+<div class="background">
+    <div class="biaodan">
+        <div class="login">
+            <h2>LOG IN</h2>
+        </div>
+        <div class="register">
+            <form style="height: 200px;" action="/user/login">
+                <div style="margin: 5px 0;"><label>用户名:</label>
+                    <input class="bor" type="text"  id="us" name="用户名" placeholder="邮箱/手机号"></div><br/>
+                <div style="margin: 5px 0"><label>密码 :</label>
+                <input class="bor" type="password" id="ps" name="密码" placeholder="密码"></div>
+                    <input type="button" value="register" onclick="login()">
+            </form>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+</body>
+<script>
+    function login() {
+        var us =$('#us').val();
+        var ps =$('#ps').val();
+        $.ajax({
+            url: 'http://39.105.232.109:3000/user/login',
+            type:'post',
+            data: {
+                us: us,
+                ps: ps
+            },
+            success: function (data) {
+                if (data.err == 0) {
+                    console.log(data)
+                    localStorage.setItem("id", data._id)
+                    window.location.href = 'homepage.html'
+                } else {
+                    alert(data.msg)
+                }
+            }
+        })
+    }
+</script>
+</html>

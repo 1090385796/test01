@@ -1,0 +1,52 @@
+.background{
+    opacity: 0.55;
+    filter: alpha(opacity=55);
+    height: 700px;
+    width: 100%;
+    background: url("../img/food.jpg")
+}
+.biaodan{
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: white;
+    opacity:0.85;
+    filter:alpha(opacity=85);
+}
+.login{
+    height: 50px;
+    color: #0b3b9d;
+    font-size: 20px;
+    text-align:center;
+}
+input[type=button] {
+    width: 66%;
+    background-color: #4c6faf;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=button]:hover {
+    background-color: #5e8ee6;
+}
+.register{
+    position: relative;
+    top: 40px;
+    height: 200px;
+    text-align:center;
+}
+.bor{
+    outline: none;
+    border: none;
+    border-bottom-style: groove;
+    color: #5e8ee6;
+}
+​

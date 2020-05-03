@@ -1,0 +1,142 @@
+.head{
+    background-color: #A4D3EE;
+    width: 100%;
+    height: 110px;
+    opacity: 0.55;
+    box-shadow: 6px 6px grey;
+}
+.letter{
+    text-align:center;
+    text-shadow: 5px 5px 5px #FF0000;
+    top: 20px;
+    position: relative;
+}
+.middle{
+    height: 610px;
+    width: 100%;
+}
+.left{
+    background-color: #A4D3EE;
+    height: 610px;
+    width: 200px;
+}
+.leftone{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    font-size: 20px;
+    cursor:pointer;
+}
+.leftone:hover{
+   background-color: #86bce5;
+}
+.import{
+    height: 582px;
+    width: 1168px;
+    background-color: #E3E3E3;
+    position: relative;
+    bottom: 580px;
+    left: 275px;
+}
+.food-pic{
+    position: relative;
+    height: 250px;
+    width: 250px;
+    top: 151px;
+    left: 423px;
+}
+.pic-round{
+    position: relative;
+    height: 100px;
+    width:150px;
+    bottom: 221px;
+    left: 476px;
+}
+.card{
+    height: 200px;
+    width: 200px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 4px;
+    display: inline-block;
+    margin-left: 61px;
+}
+.card span {
+    font-size: 12px;
+    color: #BFBFBF;
+    display: block;
+    letter-spacing: 2px;
+    padding: 30px 20px;
+}
+.biaoge{
+    position: relative;
+    top: 50px;
+}
+.message{
+    height: 300px;
+}
+.mess-head{
+    text-align:center;
+    text-shadow: 5px 5px 5px #5e8ee6;
+    font-size: 20px;
+    height: 60px;
+    background-color: #A4D3EE;
+    border-radius: 50%;
+    position: relative;
+    left: 174px;
+    width: 50%;
+}
+.bor{
+    outline: none;
+    border: none;
+    border-bottom-style: groove;
+    color: #5e8ee6;
+    background-color: #E3E3E3;
+}
+.user-id{
+    font-size: 20px;
+}
+.butt{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    position: relative;
+    left: 730px;
+    top: 115px;
+    border-radius: 13%;
+    cursor: pointer;
+}
+.fenye{
+    display: block;
+    position: relative;
+    top: 75px;
+    left: 600px;
+    width: 476px;
+}
+.item{
+    width: 820px;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+}
+.item .item-title{
+    font-size: 16px;
+    line-height: 24px;
+}
+.item .item-content{
+    color: #9D9D9D;
+    margin-right: 20px;
+}
+.BU{
+    height: 20px;
+    position: relative;
+    top: -50px;
+}

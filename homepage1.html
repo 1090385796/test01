@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homepage</title>
+    <link rel="stylesheet" type="text/css" href="css/homepage.css">
+</head>
+<body>
+<div class="head">
+    <h2 class="letter">WELCOME
+        <div><img style="width: 50px;height: 50px;" src="./img/dining.png"></div></h2>
+</div>
+<div class="middle">
+    <div class="left">
+        <a href="homepage1.html" style="text-decoration:none "><div class="leftone">用户部分 ></div></a>
+        <a href="homepage2.html" style="text-decoration:none "><div class="leftone">菜单部分 ></div></a>
+        <a href="homepage3.html" style="text-decoration:none "><div class="leftone">订单部分 ></div></a>
+    </div>
+    <div class="import" style="position: relative;bottom: 585px;">
+        <div class="message">
+            <div class="mess-head">用户部分</div>
+            <div style="margin: 5px 0;position: relative;top: 60px;left: 65px;">
+                <span>用户id :</span>
+                <span class="bor user_id" ></span>
+            </div>
+            <div style="margin: 5px 0;position: relative;top: 60px;left: 65px;">
+                <span>姓名 :</span>
+                <span class="bor user_name"></span>
+            </div>
+            <div style="margin: 5px 0;position: relative;top: 60px;left: 65px;">
+                <span>电话 :</span>
+                <span class="bor user_tel"></span>
+            </div>
+            <div style="margin: 5px 0;position: relative;top: 60px;left: 65px;">
+                <span>年龄 :</span>
+                <span class="bor user_age"></span>
+            </div>
+    </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script>
+    get()
+    function get(){
+        $.ajax({
+            url: 'http://39.105.232.109:3000/user/getInfoById',
+            type:'post',
+            data: {
+                _id:localStorage.getItem("id")
+            },
+            success: function (data) {
+                console.log(data);
+                $(".user_id").text(data.list[0]._id)
+                $(".user_name").text(data.list[0].us)
+                $(".user_tel").text(data.list[0].tel)
+                $(".user_age").text(data.list[0].age)
+            }
+        })
+    }
+</script>
+</html>

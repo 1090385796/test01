@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>homepage</title>
+    <link rel="stylesheet" type="text/css" href="css/homepage.css">
+</head>
+<body>
+<div class="head">
+    <h2 class="letter">WELCOME
+        <div><img style="width: 50px;height: 50px;" src="./img/dining.png"></div></h2>
+</div>
+<div class="middle">
+    <div class="left">
+        <a href="homepage1.html" style="text-decoration:none "><div class="leftone">用户部分 ></div></a>
+        <a href="homepage2.html" style="text-decoration:none "><div class="leftone">菜单部分 ></div></a>
+        <a href="homepage3.html" style="text-decoration:none "><div class="leftone">订单部分 ></div></a>
+    </div>
+    <div class="import">
+        <div class="biaoge" >
+            <div class="item" style="margin:0 auto;">
+                <div class="item-title">菜品名字</div>
+                <div>
+                    <span class="item-content">菜品介绍</span>
+                </div>
+                <div class="BU">
+                    <div class="butt" style="position: relative;top: 6px;left: 545px;">添加</div>
+                    <div class="butt" style="position: relative;left: 556px;top: 7px; background-color: #D84C28;">修改</div>
+                    <div class="butt" style="position: relative;left: 572px;top: 6px; background-color: #0b62b6">删除</div>
+                </div>
+            </div>
+            <div class="item" style="margin:0 auto;">
+                <div class="item-title">菜品名字</div>
+                <div>
+                    <span class="item-content">菜品介绍</span>
+                </div>
+                <div class="BU">
+                    <div class="butt" style="position: relative;top: 6px;left: 545px;">添加</div>
+                    <div class="butt" style="position: relative;left: 556px;top: 7px; background-color: #D84C28;">修改</div>
+                    <div class="butt" style="position: relative;left: 572px;top: 6px; background-color: #0b62b6">删除</div>
+                </div>
+            </div>
+            <div class="item" style="margin:0 auto;">
+                <div class="item-title">菜品名字</div>
+                <div>
+                    <span class="item-content">菜品介绍</span>
+                </div>
+                <div class="BU">
+                    <div class="butt" style="position: relative;top: 6px;left: 545px;">添加</div>
+                    <div class="butt" style="position: relative;left: 556px;top: 7px; background-color: #D84C28;">修改</div>
+                    <div class="butt" style="position: relative;left: 572px;top: 6px; background-color: #0b62b6">删除</div>
+                </div>
+            </div>
+            <div class="item" style="margin:0 auto;">
+                <div class="item-title">菜品名字</div>
+                <div>
+                    <span class="item-content">菜品介绍</span>
+                </div>
+                <div class="BU">
+                    <div class="butt" style="position: relative;top: 6px;left: 545px;">添加</div>
+                    <div class="butt" style="position: relative;left: 556px;top: 7px; background-color: #D84C28;">修改</div>
+                    <div class="butt" style="position: relative;left: 572px;top: 6px; background-color: #0b62b6">删除</div>
+                </div>
+            </div>
+            <div class="item" style="margin:0 auto;">
+                <div class="item-title">菜品名字</div>
+                <div>
+                    <span class="item-content">菜品介绍</span>
+                </div>
+                <div class="BU">
+                    <div class="butt" style="position: relative;top: 6px;left: 545px;">添加</div>
+                    <div class="butt" style="position: relative;left: 556px;top: 7px; background-color: #D84C28;">修改</div>
+                    <div class="butt" style="position: relative;left: 572px;top: 6px; background-color: #0b62b6">删除</div>
+                </div>
+            </div>
+        </div>
+        <nav class="fenye">
+            <ul id="pagination" class="pagination">
+                <li class="page-item disabled"><a class="page-link" href="#">上一页</a></li>
+                <li class="page-item disabled"><a class="page-link" href="#">1</a></li>
+                <li class="page-item disabled"><a class="page-link" href="#">下一页</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="lib/jquery-3.4.1.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/2.js"></script>
+<script>
+    let currPage = 1,    // 当前页码
+        pageSize = 10;    // 页大小
+
+    search(1);        // 测试代码
+
+    // 向后端请求数据
+    function search(destPage) {
+        currPage = handlePage(destPage, currPage);
+        $.ajax({
+            //请求方式
+            type:'post',
+
+            //发送请求的地址
+            url:'http://39.105.232.109:3000/food/getInfoByPage',
+
+            //服务器返回的数据类型
+            data: {
+                pageSize: 5,
+                page: 1
+            },
+            //dataType:'json',
+            //请求成功的处理
+            success:function(data){
+                console.log(data);
+                //获取需要的数据
+                var group = data.content;
+
+                //拼接字符串
+                var str = '';
+                //对数据做遍历，拼接到页面显示
+                for(var i=0;i<group.length;i++){
+                    str += '<div class="item">'+
+                        '<div class="item-title">'+ group[i].name +'</div>'+
+                        '<div>'+
+                        '<span class="item-content">'+ group[i].time +'</span>'+
+                        '</div>'+
+                        '</div>';
+                }
+                //放入页面的容器显示
+                $('#container').html(str);
+
+            },
+            //请求失败的处理
+            error:function(jqXHR){
+                console.log(jqXHR);
+            }
+        });
+
+        // 此处写 Ajax 向后端发送 currPage 和 pageSize 请求最大页码（和需要的业务数据）
+        let totalPage = 25;    // 此处模拟返回的最大页码
+
+        $("#pagination").html(buildPagination(currPage, totalPage, 'search'));
+    }
+
+</script>
+
+</body>
+</html>
